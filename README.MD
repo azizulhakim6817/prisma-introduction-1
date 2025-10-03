@@ -24,16 +24,15 @@
    DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
 
 7. npx prisma migrate dev --name init
-   **\* ? Enter a name for the new migration: » user_table
-   \*\*** Prev data delete ----> npx prisma migrate reset
 
-```
+   1. ? Enter a name for the new migration: » user_table
+   2. Prev data delete ----> npx prisma migrate reset
+
 8. npm install @prisma/client
 9. npx prisma generate
 
-
 10. Query--------------------------------------------
-    ``js
+    ```js
     model Post {
     id Int @id @default(autoincrement())
     createdAt DateTime @default(now())
@@ -44,6 +43,7 @@
     author User @relation(fields: [authorId], references: [id])
     authorId Int
     }
+    ```
 
 model Profile {
 id Int @id @default(autoincrement())
@@ -62,7 +62,7 @@ profile Profile?
 
 ```
 
-````
+```
 
 ## 10. Create a new file named index.ts and add the following code to it:
 
@@ -84,4 +84,4 @@ main()
     await prisma.$disconnect();
     process.exit(1);
   });
-````
+```
